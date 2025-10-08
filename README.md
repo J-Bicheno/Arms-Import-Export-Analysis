@@ -1,20 +1,29 @@
-# Project XYZ
+# Global Arms Trade Analysis
 
-**Project XYZ** is a comprehensive data analysis tool designed to streamline data exploration, analysis, and visualisation. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists.
+**Global Arms Trade Analysis** is a comprehensive data analysis tool designed to highlight the trading relationship between countries around the globe in the context of military vehicles and armaments.
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 
 ## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size of 100Gb.
+I decided on the SIPRI (Stockholm International Peace Research Institute) Trade Register dataset for my analysis, in my initial observation it showed great promise for a number of reasons:
+ - It is a medium size dataset with enough content for in depth analysis but not so big that memory usage would be a concern
+ - The dataset was well formatted but had flaws where I could showcase and develop my ETL skills specifically the Pandas library
+ - The content of the data was extensive with 10 columns excluding 3 empty columns providing a good foundation for feature engineering
+ - The organisation that created the dataset is independant reducing the likelihood of potential bias
 
 
 ## Business Requirements
-* Describe your business requirements
+* I wanted to create this tool with the requirement of showcasing what countries influence global conflict the most via arms imports and exports
 
 
 ## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+* Weapon types will have a significant impact on the volume of each import/export order
+    * I plan to use comparison or significance statistical tests for this 
+* Countries will typically fall into 1 of 3 clusters: Importer, Exporter, Balanced Trader
+    * K-means clustering could validate this hypothesis
+* Based on basic geo-political knowledge I preedict the United States will be the biggest exporter of arms out of all available countries
+    * Some feature engineering and a basic lolipop or bar chart could validate
 
 ## Project Plan
 * Outline the high-level steps taken for the analysis.

@@ -15,11 +15,12 @@ I decided on the SIPRI (Stockholm International Peace Research Institute) Trade 
 
 ## Business Requirements
 * I wanted to create this tool with the requirement of showcasing what countries influence global conflict the most via arms imports and exports
+* The goal is to show how a minority of countries have a majority of global influence
 
 
 ## Hypothesis and how to validate?
-* Weapon types will have a significant impact on the volume of each import/export order
-    * I plan to use comparison or significance statistical tests for this 
+* Over time, lower value arms deals remain stable and constant but the magnitude and number of very large orders change
+    * A probability heatmap or KDE plot would be best for this hypothesis
 * Countries will typically fall into 1 of 3 clusters: Importer, Exporter, Balanced Trader
     * K-means clustering could validate this hypothesis
 * Based on basic geo-political knowledge I preedict the United States will be the biggest exporter of arms out of all available countries

@@ -80,7 +80,7 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ---
 
-## Project Plan & Methodology
+## Project Plan and Methodology
 
 ### High-Level Steps
 
@@ -119,7 +119,7 @@ The SIPRI Trade Register dataset was chosen for its:
 - **Dashboarding:** Dash/Streamlit for interactive exploration.
 - **Generative AI Tools:** Used for ideation, code optimization, and documentation drafting.
 
-### Limitations & Alternatives
+### Limitations and Alternatives
 
 - **Data Gaps:** Some deals lack full details—imputed values or aggregate trends used as fallback.
 - **Bias Risk:** SIPRI is independent, but reporting from some countries may be inconsistent.
@@ -129,15 +129,15 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ## Ethical Considerations
 
-- **Data Privacy:** Dataset is aggregate and public; no personal data involved.
-- **Bias & Fairness:** Monitored for representation or reporting gaps. Results interpreted with context.
+- **Data Privacy:** Dataset is aggregate and public; no personal data involved, followed SIPRI fair use policy.
+- **Bias and Fairness:** Monitored for representation or reporting gaps. Results interpreted with context.
 - **Societal Impact:** The tool is for academic and policy analysis, not for promoting arms trading.
 
 ---
 
 ## Dashboard Design
 
-### Pages & Widgets
+### Pages and Widgets
 
 1. **Global Overview:** Top trading countries, interactive world map, summary stats.
 2. **Time Series Explorer:** Arms deals over years, filter by country/type.
@@ -154,15 +154,13 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ---
 
-## Known Issues & Limitations
+## Known Issues and Limitations
 
-- **Unfixed Bugs:** Some ETL steps may not handle rare format anomalies; see [issues](https://github.com/J-Bicheno/Arms-Import-Export-Analysis/issues).
-- **Framework Shortcomings:** Dash/Streamlit map rendering can be slow for large datasets.
-- **Knowledge Gaps:** Initial unfamiliarity with advanced clustering—addressed via tutorials and peer feedback.
+- **Knowledge Gaps:** Initial unfamiliarity with advanced clustering—addressed via tutorials
 
 ---
 
-## Development Roadmap & Reflection
+## Development Roadmap and Reflection
 
 - **Challenges:** Handling missing data, optimizing dashboard responsiveness, learning new libraries.
 - **Strategies:** Incremental development, peer code reviews, use of open-source resources.
@@ -209,7 +207,7 @@ The SIPRI Trade Register dataset was chosen for its:
 ### Tutorials & Examples
 
 - Form validation: [Specific YouTube Tutorial](https://www.youtube.com/)
-- Dashboard inspiration: [Dash Gallery](https://dash.gallery/)
+- Dashboard inspiration: [ATT Monitor](https://attmonitor.org/en/att-arms-dashboard)
 
 ---
 

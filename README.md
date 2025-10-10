@@ -41,6 +41,7 @@ The dashboard provides interactive visualizations to communicate complex insight
 ## Dataset Description
 
 **Source:** [SIPRI Arms Transfers Database](https://www.sipri.org/databases/armstransfers)
+The data is from the Stockholm International Peace Research Institute (SIPRI) Arms Transfers Database (https://doi.org/10.55163/SAFC1241). The data remains the sole intellectual property of SIPRI and cannot be used for any commercial purposes without licensed authorization from SIPRI. For further information please see the SIPRI website: https://www.sipri.org/about/terms-and-conditions.
 
 The SIPRI Trade Register dataset was chosen for its:
 - **Manageable size:** Medium-sized, enabling deep analysis without memory issues.
@@ -64,7 +65,7 @@ The SIPRI Trade Register dataset was chosen for its:
 - **Focus Areas:**
     - Highlight nations with disproportionate influence.
     - Reveal trade imbalances and clusters.
-    - Enable exploration of temporal trends and deal magnitudes.
+    - Enable exploration of trends over time and deal sizes.
 
 ---
 
@@ -73,7 +74,7 @@ The SIPRI Trade Register dataset was chosen for its:
 1. **Stability in Low-Value Deals:** Lower value arms deals are stable over time, while large orders fluctuate.
     - *Validation:* KDE plots, probability heatmaps.
 2. **Country Clustering:** Countries fall primarily into Importer, Exporter, or Balanced Trader clusters.
-    - *Validation:* K-means clustering, silhouette analysis.
+    - *Validation:* K-means clustering, visual cluster analysis.
 3. **Dominant Exporters:** The United States is hypothesized to be the largest exporter.
     - *Validation:* Feature engineering, bar/lollipop charts.
 
@@ -88,14 +89,13 @@ The SIPRI Trade Register dataset was chosen for its:
 3. **Exploratory Analysis:** Use descriptive statistics and initial visualizations to identify trends.
 4. **Feature Engineering:** Create metrics such as trade balance, deal magnitude, cluster assignment.
 5. **Clustering & Advanced Analysis:** Apply k-means and other unsupervised learning methods.
-6. **Visualization:** Build interactive dashboards using Plotly, Dash, or Streamlit.
-7. **Interpretation:** Summarize findings for both technical and lay audiences.
+6. **Visualization:** Build interactive dashboard using Power BI.
+7. **Interpretation:** Summarize findings for both technical and non-technical audiences.
 
 ### Research Methodologies
 
 - **Quantitative Analysis:** Statistical summaries, regression, clustering.
-- **Visual Analytics:** Geospatial mapping, temporal plots, heatmaps.
-- **Iterative Development:** Feedback-driven refinement and feature updates.
+- **Visual Analytics:** Time series plots, heatmaps.
 
 ---
 
@@ -113,7 +113,8 @@ The SIPRI Trade Register dataset was chosen for its:
 
 - **ETL & Data Cleaning:** Remove nulls, correct outliers, standardize country names, handle missing columns.
 - **Feature Engineering:** Calculate trade balances, deal values, normalize quantities.
-- **Clustering:** K-means, DBSCAN (for outlier detection), hierarchical clustering.
+- **Scaling** Log scaling applied 
+- **Clustering:** K-means, visual and quantitive cluster analysis.
 - **Visualization:** Plotly/Matplotlib/Seaborn for charts, geopandas for mapping.
 - **Dashboarding:** Dash/Streamlit for interactive exploration.
 - **Generative AI Tools:** Used for ideation, code optimization, and documentation drafting.
@@ -165,7 +166,7 @@ The SIPRI Trade Register dataset was chosen for its:
 
 - **Challenges:** Handling missing data, optimizing dashboard responsiveness, learning new libraries.
 - **Strategies:** Incremental development, peer code reviews, use of open-source resources.
-- **Next Steps:** Explore NLP for deal notes, deeper geospatial analysis, expand to other datasets.
+- **Next Steps:** Deeper geospatial analysis, expand to other datasets.
 
 ---
 
@@ -185,15 +186,12 @@ The SIPRI Trade Register dataset was chosen for its:
 ## Core Libraries Used
 
 - **Pandas:** Data cleaning, transformation, aggregation.
-    - `df = pd.read_csv('sipri_data.csv')`
 - **NumPy:** Numerical computation.
+- **SciPy** Statistical analysis.
 - **Matplotlib/Seaborn/Plotly:** Visualizations.
-    - `plt.bar(x, y)`
 - **Scikit-learn:** Clustering, feature scaling.
-    - `KMeans(n_clusters=3).fit(df[['exports', 'imports']])`
-- **Dash/Streamlit:** Interactive dashboard.
-- **Geopandas:** Geospatial mapping.
-
+   
+  
 ---
 
 ## Credits
@@ -202,7 +200,6 @@ The SIPRI Trade Register dataset was chosen for its:
 
 - SIPRI Arms Transfers Database for core dataset.
 - Wikipedia for contextual background.
-- Peer-reviewed articles and conference papers for methodology.
 
 ### Media
 
@@ -218,7 +215,7 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ## Acknowledgements
 
-Special thanks to mentors, peers, and instructors for feedback and support throughout this project. Your guidance was invaluable in shaping both the technical and analytical depth of this analysis.
+Special thanks to my peers and my facilitator Vasi for feedback and support throughout this project.
 
 ---
 

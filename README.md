@@ -46,17 +46,27 @@ The data is from the Stockholm International Peace Research Institute (SIPRI) Ar
 The SIPRI Trade Register dataset was chosen for its:
 - **Manageable size:** Medium-sized, enabling deep analysis without memory issues.
 - **Well-structured format:** Although some flaws exist, they provide opportunities to apply and showcase robust ETL and data cleaning techniques.
-- **Richness:** Contains 10 core columns (excluding 3 empty ones), suitable for feature engineering and advanced analytics.
+- **Richness:** Contains 13 core columns (excluding 3 empty ones), suitable for feature engineering and advanced analytics.
 - **Credibility:** SIPRI is independent, reducing bias risk.
 
-### Key Columns
-- Year of transfer
-- Supplier country
-- Recipient country
-- Weapon type and description
-- Delivery values and quantities
-- Deal details and notes
+## TIV (Trend Indicator Value)
+- **Important Note:** This dataset measures each order and piece of equipment by it's TIV as opposed to it's monetary value
+- This value is calculated by comparing several different factors
+- For more inofrmation on TIV and how it's applied and calculated refer to this report/fact sheet: (https://www.sipri.org/sites/default/files/files/FS/SIPRIFS1212.pdf)
 
+## Key Columns
+
+| Column Name         | Description                                                                                  |
+|---------------------|---------------------------------------------------------------------------------------------|
+| Year of Order            | Calendar year when the arms transfer or deal occurred.                                      |
+| Supplier     | Country or entity that supplied the military equipment; used for export analysis.            |
+| Recipient   | Country or entity that received the equipment; used for import analysis and trade mapping.   |
+| Weapon Description         | General category of military equipment, such as aircraft, naval vessels, or vehicles.        |
+| Weapon Designation  | Detailed specification of the weapon system, including model, subtype, and capabilities.     |
+| SIPRI TIV for Total Order     | standardized value assigned to the transfer, allowing for deal magnitude analysis.|
+| Number Delivered  | Total number of units or items delivered per deal; helps quantify overall volume of transfers.|
+| Status      | Comments on quality of units delivered, e.g. Second Hand but modernized |
+| Comments               | Additional remarks, clarifications, or context provided by the dataset for certain records.  |
 ---
 
 ## Business Requirements
@@ -123,7 +133,7 @@ The SIPRI Trade Register dataset was chosen for its:
 
 - **Data Gaps:** Some deals lack full details—imputed values or aggregate trends used as fallback.
 - **Bias Risk:** SIPRI is independent, but reporting from some countries may be inconsistent.
-- **Method Alternatives:** Where clustering failed, manual segmentation and expert review were considered.
+- **Method Alternatives:** Where clustering may have failed, binary classification was considered.
 
 ---
 

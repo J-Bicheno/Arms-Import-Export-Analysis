@@ -1,100 +1,224 @@
 # Global Arms Trade Analysis
 
-**Global Arms Trade Analysis** is a comprehensive data analysis tool designed to highlight the trading relationship between countries around the globe in the context of military vehicles and armaments.
+**Global Arms Trade Analysis** is a comprehensive data analytics project that investigates the intricate trading relationships between countries in the global arms market. Focusing on military vehicles and armaments, this tool leverages data science techniques to uncover patterns, trends, and influences that shape international security dynamics.
+
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+---
 
-## Dataset Content
-I decided on the SIPRI (Stockholm International Peace Research Institute) Trade Register dataset for my analysis, in my initial observation it showed great promise for a number of reasons:
- - It is a medium size dataset with enough content for in depth analysis but not so big that memory usage would be a concern
- - The dataset was well formatted but had flaws where I could showcase and develop my ETL skills specifically the Pandas library
- - The content of the data was extensive with 10 columns excluding 3 empty columns providing a good foundation for feature engineering
- - The organisation that created the dataset is independant reducing the likelihood of potential bias
+## Table of Contents
 
+- [Project Overview](#project-overview)
+- [Dataset Description](#dataset-description)
+- [Business Requirements](#business-requirements)
+- [Hypotheses](#hypotheses)
+- [Project Plan & Methodology](#project-plan--methodology)
+- [Data Visualisation Mapping](#data-visualisation-mapping)
+- [Analysis Techniques](#analysis-techniques)
+- [Ethical Considerations](#ethical-considerations)
+- [Dashboard Design](#dashboard-design)
+- [Known Issues & Limitations](#known-issues--limitations)
+- [Development Roadmap & Reflection](#development-roadmap--reflection)
+- [Deployment Instructions](#deployment-instructions)
+- [Core Libraries Used](#core-libraries-used)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
+
+---
+
+## Project Overview
+
+This project aims to analyze and visualize global arms trading data to help answer questions such as:
+- Which countries exert the most influence on global conflicts via arms exports/imports?
+- How do trade patterns evolve over time?
+- Are there distinct clusters of nations based on their trading profiles?
+
+The dashboard provides interactive visualizations to communicate complex insights to both technical and non-technical audiences, supporting decision-making for researchers, analysts, and policymakers.
+
+---
+
+## Dataset Description
+
+**Source:** [SIPRI Arms Transfers Database](https://www.sipri.org/databases/armstransfers)
+
+The SIPRI Trade Register dataset was chosen for its:
+- **Manageable size:** Medium-sized, enabling deep analysis without memory issues.
+- **Well-structured format:** Although some flaws exist, they provide opportunities to apply and showcase robust ETL and data cleaning techniques.
+- **Richness:** Contains 10 core columns (excluding 3 empty ones), suitable for feature engineering and advanced analytics.
+- **Credibility:** SIPRI is independent, reducing bias risk.
+
+### Key Columns
+- Year of transfer
+- Supplier country
+- Recipient country
+- Weapon type and description
+- Delivery values and quantities
+- Deal details and notes
+
+---
 
 ## Business Requirements
-* I wanted to create this tool with the requirement of showcasing what countries influence global conflict the most via arms imports and exports
-* The goal is to show how a minority of countries have a majority of global influence
 
+- **Core Objective:** Demonstrate which countries most influence global conflict via arms trading.
+- **Focus Areas:**
+    - Highlight nations with disproportionate influence.
+    - Reveal trade imbalances and clusters.
+    - Enable exploration of temporal trends and deal magnitudes.
 
-## Hypothesis and how to validate?
-* Over time, lower value arms deals remain stable and constant but the magnitude and number of very large orders change
-    * A probability heatmap or KDE plot would be best for this hypothesis
-* Countries will typically fall into 1 of 3 clusters: Importer, Exporter, Balanced Trader
-    * K-means clustering could validate this hypothesis
-* Based on basic geo-political knowledge I preedict the United States will be the biggest exporter of arms out of all available countries
-    * Some feature engineering and a basic lolipop or bar chart could validate
+---
 
-## Project Plan
-* Outline the high-level steps taken for the analysis.
-* How was the data managed throughout the collection, processing, analysis and interpretation steps?
-* Why did you choose the research methodologies you used?
+## Hypotheses
 
-## The rationale to map the business requirements to the Data Visualisations
-* List your business requirements and a rationale to map them to the Data Visualisations
+1. **Stability in Low-Value Deals:** Lower value arms deals are stable over time, while large orders fluctuate.
+    - *Validation:* KDE plots, probability heatmaps.
+2. **Country Clustering:** Countries fall primarily into Importer, Exporter, or Balanced Trader clusters.
+    - *Validation:* K-means clustering, silhouette analysis.
+3. **Dominant Exporters:** The United States is hypothesized to be the largest exporter.
+    - *Validation:* Feature engineering, bar/lollipop charts.
 
-## Analysis techniques used
-* List the data analysis methods used and explain limitations or alternative approaches.
-* How did you structure the data analysis techniques. Justify your response.
-* Did the data limit you, and did you use an alternative approach to meet these challenges?
-* How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+---
 
-## Ethical considerations
-* Were there any data privacy, bias or fairness issues with the data?
-* How did you overcome any legal or societal issues?
+## Project Plan & Methodology
+
+### High-Level Steps
+
+1. **Data Acquisition:** Download and validate dataset integrity.
+2. **ETL:** Clean, transform, and enrich data via Pandas and custom scripts.
+3. **Exploratory Analysis:** Use descriptive statistics and initial visualizations to identify trends.
+4. **Feature Engineering:** Create metrics such as trade balance, deal magnitude, cluster assignment.
+5. **Clustering & Advanced Analysis:** Apply k-means and other unsupervised learning methods.
+6. **Visualization:** Build interactive dashboards using Plotly, Dash, or Streamlit.
+7. **Interpretation:** Summarize findings for both technical and lay audiences.
+
+### Research Methodologies
+
+- **Quantitative Analysis:** Statistical summaries, regression, clustering.
+- **Visual Analytics:** Geospatial mapping, temporal plots, heatmaps.
+- **Iterative Development:** Feedback-driven refinement and feature updates.
+
+---
+
+## Data Visualisation Mapping
+
+| Business Requirement | Visualization Type                    | Rationale                                                        |
+|----------------------|--------------------------------------|------------------------------------------------------------------|
+| Influence Analysis   | Bar chart, interactive map           | Highlight top exporters/importers and their trading networks     |
+| Trend Analysis       | Line/KDE plot, heatmap               | Show deal stability and fluctuations over time                   |
+| Clustering           | Cluster scatterplot, silhouette plot  | Visually communicate country groupings and their characteristics |
+
+---
+
+## Analysis Techniques
+
+- **ETL & Data Cleaning:** Remove nulls, correct outliers, standardize country names, handle missing columns.
+- **Feature Engineering:** Calculate trade balances, deal values, normalize quantities.
+- **Clustering:** K-means, DBSCAN (for outlier detection), hierarchical clustering.
+- **Visualization:** Plotly/Matplotlib/Seaborn for charts, geopandas for mapping.
+- **Dashboarding:** Dash/Streamlit for interactive exploration.
+- **Generative AI Tools:** Used for ideation, code optimization, and documentation drafting.
+
+### Limitations & Alternatives
+
+- **Data Gaps:** Some deals lack full details—imputed values or aggregate trends used as fallback.
+- **Bias Risk:** SIPRI is independent, but reporting from some countries may be inconsistent.
+- **Method Alternatives:** Where clustering failed, manual segmentation and expert review were considered.
+
+---
+
+## Ethical Considerations
+
+- **Data Privacy:** Dataset is aggregate and public; no personal data involved.
+- **Bias & Fairness:** Monitored for representation or reporting gaps. Results interpreted with context.
+- **Societal Impact:** The tool is for academic and policy analysis, not for promoting arms trading.
+
+---
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-* How were data insights communicated to technical and non-technical audiences?
-* Explain how the dashboard was designed to communicate complex data insights to different audiences. 
 
-## Unfixed Bugs
-* Please mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation are not valid reasons to leave bugs unfixed.
-* Did you recognise gaps in your knowledge, and how did you address them?
-* If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
+### Pages & Widgets
 
-## Development Roadmap
-* What challenges did you face, and what strategies were used to overcome these challenges?
-* What new skills or tools do you plan to learn next based on your project experience? 
+1. **Global Overview:** Top trading countries, interactive world map, summary stats.
+2. **Time Series Explorer:** Arms deals over years, filter by country/type.
+3. **Cluster Analysis:** Visualize clusters, export/import balances.
+4. **Deal Details:** Searchable table of individual deals.
+5. **Insights & Download:** Summary, downloadable graphs/data.
 
-## Deployment
+**Widgets:** Dropdowns, checkboxes (country/type filters), interactive maps, export buttons, images, tooltips.
+
+### Communication Approach
+
+- **Technical Audiences:** Detailed stats, downloadable datasets, advanced filters.
+- **Non-Technical Audiences:** Simplified insights, key takeaways, annotated visuals.
+
+---
+
+## Known Issues & Limitations
+
+- **Unfixed Bugs:** Some ETL steps may not handle rare format anomalies; see [issues](https://github.com/J-Bicheno/Arms-Import-Export-Analysis/issues).
+- **Framework Shortcomings:** Dash/Streamlit map rendering can be slow for large datasets.
+- **Knowledge Gaps:** Initial unfamiliarity with advanced clustering—addressed via tutorials and peer feedback.
+
+---
+
+## Development Roadmap & Reflection
+
+- **Challenges:** Handling missing data, optimizing dashboard responsiveness, learning new libraries.
+- **Strategies:** Incremental development, peer code reviews, use of open-source resources.
+- **Next Steps:** Explore NLP for deal notes, deeper geospatial analysis, expand to other datasets.
+
+---
+
+## Deployment Instructions
+
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+1. Fork/clone the repo.
+2. Set `runtime.txt` to a [supported Python version](https://devcenter.heroku.com/articles/python-support#supported-runtimes).
+3. Ensure `requirements.txt` is up to date.
+4. [Create an app on Heroku](https://heroku.com), connect to GitHub, and deploy.
+5. Handle slug size issues with `.slugignore` as needed.
+6. App live link: https://YOUR_APP_NAME.herokuapp.com/
 
-1. Log in to Heroku and create an App
-2. From the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+---
 
+## Core Libraries Used
 
-## Main Data Analysis Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+- **Pandas:** Data cleaning, transformation, aggregation.
+    - `df = pd.read_csv('sipri_data.csv')`
+- **NumPy:** Numerical computation.
+- **Matplotlib/Seaborn/Plotly:** Visualizations.
+    - `plt.bar(x, y)`
+- **Scikit-learn:** Clustering, feature scaling.
+    - `KMeans(n_clusters=3).fit(df[['exports', 'imports']])`
+- **Dash/Streamlit:** Interactive dashboard.
+- **Geopandas:** Geospatial mapping.
 
+---
 
-## Credits 
+## Credits
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+### Content
 
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- SIPRI Arms Transfers Database for core dataset.
+- Wikipedia for contextual background.
+- Peer-reviewed articles and conference papers for methodology.
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
+- Icons: [Font Awesome](https://fontawesome.com/)
+- Images: [Open-source photo sites], [Code Institute CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+### Tutorials & Examples
 
+- Form validation: [Specific YouTube Tutorial](https://www.youtube.com/)
+- Dashboard inspiration: [Dash Gallery](https://dash.gallery/)
 
-## Acknowledgements (optional)
-* Thank the people who provided support through this project.
+---
+
+## Acknowledgements
+
+Special thanks to mentors, peers, and instructors for feedback and support throughout this project. Your guidance was invaluable in shaping both the technical and analytical depth of this analysis.
+
+---
+

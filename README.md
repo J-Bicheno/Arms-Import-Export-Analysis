@@ -178,16 +178,12 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ---
 
-## Deployment Instructions
+## Deployment 
 
-### Heroku
+### Power BI
 
-1. Fork/clone the repo.
-2. Set `runtime.txt` to a [supported Python version](https://devcenter.heroku.com/articles/python-support#supported-runtimes).
-3. Ensure `requirements.txt` is up to date.
-4. [Create an app on Heroku](https://heroku.com), connect to GitHub, and deploy.
-5. Handle slug size issues with `.slugignore` as needed.
-6. App live link: https://YOUR_APP_NAME.herokuapp.com/
+- Link to published dashboard: https://app.powerbi.com/links/DNL6YpITRY?ctid=c233c072-135b-431d-af59-35e05babf941&pbi_source=linkShare
+- Dashboard is also saved in the dashboard folder in the repo.
 
 ---
 

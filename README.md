@@ -2,8 +2,7 @@
 
 **Global Arms Trade Analysis** is a comprehensive data analytics project that investigates the intricate trading relationships between countries in the global arms market. Focusing on military vehicles and armaments, this tool leverages data science techniques to uncover patterns, trends, and influences that shape international security dynamics.
 
-
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Cover Image](images/Humvee3.png)
 
 ---
 
@@ -13,14 +12,14 @@
 - [Dataset Description](#dataset-description)
 - [Business Requirements](#business-requirements)
 - [Hypotheses](#hypotheses)
-- [Project Plan & Methodology](#project-plan--methodology)
+- [Project Plan and Methodology](#project-plan-and-methodology)
 - [Data Visualisation Mapping](#data-visualisation-mapping)
 - [Analysis Techniques](#analysis-techniques)
 - [Ethical Considerations](#ethical-considerations)
 - [Dashboard Design](#dashboard-design)
-- [Known Issues & Limitations](#known-issues--limitations)
-- [Development Roadmap & Reflection](#development-roadmap--reflection)
-- [Deployment Instructions](#deployment-instructions)
+- [Known Issues and Limitations](#known-issues-and-limitations)
+- [Development Roadmap and Reflection](#development-roadmap-and-reflection)
+- [Deployment](#deployment)
 - [Core Libraries Used](#core-libraries-used)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
@@ -82,11 +81,11 @@ The SIPRI Trade Register dataset was chosen for its:
 ## Hypotheses
 
 1. **Stability in Low-Value Deals:** Lower value arms deals are stable over time, while large orders fluctuate.
-    - *Validation:* KDE plots, probability heatmaps.
+    - Validation: KDE plots, probability heatmaps.
 2. **Country Clustering:** Countries fall primarily into Importer, Exporter, or Balanced Trader clusters.
-    - *Validation:* K-means clustering, visual cluster analysis.
+    - Validation: K-means clustering, visual cluster analysis.
 3. **Dominant Exporters:** The United States is hypothesized to be the largest exporter.
-    - *Validation:* Feature engineering, bar/lollipop charts.
+    - Validation: Feature engineering, bar/lollipop charts.
 
 ---
 
@@ -123,10 +122,20 @@ The SIPRI Trade Register dataset was chosen for its:
 
 - **ETL & Data Cleaning:** Remove nulls, correct outliers, standardize country names, handle missing columns.
 - **Feature Engineering:** Calculate trade balances, deal values, normalize quantities.
-- **Scaling** Log scaling applied 
+- **Scaling** Log scaling applied to counteract heavy, exponential right skew
+
+![Log Scaling](images/Log_Scale_Dist.png) 
+
 - **Clustering:** K-means, visual and quantitive cluster analysis.
-- **Visualization:** Plotly/Matplotlib/Seaborn for charts, geopandas for mapping.
-- **Dashboarding:** Dash/Streamlit for interactive exploration.
+
+![Clustering Pairplot](images/Cluster_Pair.png)
+
+- **Visualization:** Matplotlib/Seaborn for charts.
+
+![Top 10](images/Top_10.png)
+![Over Time](images/TIV_Over_Time.png)
+
+- **Dashboarding:** Power BI for interactive exploration.
 - **Generative AI Tools:** Used for ideation, code optimization, and documentation drafting.
 
 ### Limitations and Alternatives
@@ -146,16 +155,18 @@ The SIPRI Trade Register dataset was chosen for its:
 ---
 
 ## Dashboard Design
+- Preview of first page
+
+![Dashboard Preview](images/dasboard_preview.png)
 
 ### Pages and Widgets
 
 1. **Global Overview:** Top trading countries, interactive world map, summary stats.
 2. **Time Series Explorer:** Arms deals over years, filter by country/type.
-3. **Cluster Analysis:** Visualize clusters, export/import balances.
-4. **Deal Details:** Searchable table of individual deals.
-5. **Insights & Download:** Summary, downloadable graphs/data.
+3. **High Level Relationships:** Visualize flow between top 5 suppliers and reciepients, highlight disparity when compared to other countries.
 
-**Widgets:** Dropdowns, checkboxes (country/type filters), interactive maps, export buttons, images, tooltips.
+
+**Widgets:** Checkboxes (country/type filters), interactive map and charts, tooltips.
 
 ### Communication Approach
 
@@ -166,14 +177,14 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ## Known Issues and Limitations
 
-- **Knowledge Gaps:** Initial unfamiliarity with advanced clustering—addressed via tutorials
+- **Knowledge Gaps:** Initial unfamiliarity with advanced clustering — addressed via AI generated step by step text guide and referring back to LMS
 
 ---
 
 ## Development Roadmap and Reflection
 
 - **Challenges:** Handling missing data, optimizing dashboard responsiveness, learning new libraries.
-- **Strategies:** Incremental development, peer code reviews, use of open-source resources.
+- **Strategies:** Incremental development, use of open-source resources.
 - **Next Steps:** Deeper geospatial analysis, expand to other datasets.
 
 ---
@@ -207,12 +218,10 @@ The SIPRI Trade Register dataset was chosen for its:
 
 ### Media
 
-- Icons: [Font Awesome](https://fontawesome.com/)
-- Images: [Open-source photo sites], [Code Institute CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+- Images: [Open-source photo sites]<a href="https://www.vecteezy.com/free-png/army-vehicle">Army Vehicle PNGs by Vecteezy</a>
 
 ### Tutorials & Examples
 
-- Form validation: [Specific YouTube Tutorial](https://www.youtube.com/)
 - Dashboard inspiration: [ATT Monitor](https://attmonitor.org/en/att-arms-dashboard)
 
 ---
